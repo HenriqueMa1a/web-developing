@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>
+        document.getElementById('primeiro').classList.add('destaque')
+        const divs = document.getElementsByTagName('div') //irá retornar um HtmlCollection que é diferente de array
+        Array.from(divs).forEach(div => div.classList.remove('destaque'))
+        //ou 
+        const divsArray = [...divs]
+        divsArray.forEach(div => div.classList.add('destaque'))
+
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        //Observe que o For of funciona para HTMLCollection
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
+
+    </script>
+</body>
+
+</html>

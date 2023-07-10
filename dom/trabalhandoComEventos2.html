@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemove = e => {
+            const div = e.target
+            item.style.cursor = 'move'
+            if(e.buttons){ //se tiver clicado, e.buttons !== 0
+                div.style.top = `${e.clientY - (div.clientHeight/2)}px`
+                div.style.left = `${e.clientX - (div.clientWidth/2)}px`
+                // explanação de cima: Se ao iniciar se clicarmos com o mouse bem no meio da tag, não irá se mover pq já ta decrescendo de metade da tag: O que implica movimentação da tag sempre com o cursor cetralizado
+            }
+        }
+    </script>
+</body>
